@@ -52,6 +52,10 @@ button {
   cursor: pointer;
 }
 
-#inputfield {
+#inputField {
   padding: 0.2rem 2.6rem;
+}
+
+.main {
+  margin-top: 20rem;
 }
