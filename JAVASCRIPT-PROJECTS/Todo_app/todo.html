@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="main">
-      <h1>Simple DOM todo app</h1>
-      <input type="text" id="inputField" />
-      <button class="btn">Click me</button>
-      <div class="todoListElem"></div>
-    </div>
+    <div class="main"></div>
+    <h1>Simple DOM todo app</h1>
+    <input type="text" id="inputField"/>
+    <button class="btn">Click me</button>
+    <div class="todoListElem"></div>
 
     <script>
       let inputElem = document.getElementById("inputField");
@@ -21,19 +20,21 @@
 
       const addTodo = () => {
         console.log(inputElem.value);
-        let pElem = document.createElement("p");
-        pElem.textContent = inputElem.value;
-        console.log(pElem);
-        inputElem.value = " ";
-        todoListElem.appendChild(pElem); // Add the new paragraph to the todo list
+        if (inputElem.value.trim() !== '') { // Check if input is not empty
+          let pElem = document.createElement("p");
+          pElem.textContent = inputElem.value;
+          pElem.classList.add('todo-item'); // Add a class for styling or identification
+          todoListElem.appendChild(pElem); // Add the new paragraph to the todo list
+          inputElem.value = ""; // Clear the input field
+        }
       };
-      clickBtn.addEventListener("click", () => {
-        addTodo();
-      });
+
+      clickBtn.addEventListener("click", addTodo);
+
       todoListElem.addEventListener("click", (event) => {
-        console.log(event.target);
-        let curElem = event.target;
-        curElem.remove(); // Remove the current element
+        if (event.target.classList.contains('todo-item')) {
+          event.target.remove(); // Remove the clicked todo item
+        }
       });
     </script>
   </body>

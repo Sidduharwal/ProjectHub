@@ -24,6 +24,7 @@ h1 {
 hr {
   margin-bottom: 3.2rem;
 }
+
 p,
 li,
 button {
@@ -36,7 +37,7 @@ button {
   background-color: #f5ee62;
   padding: 0.6rem 2.4rem;
   border-radius: 10rem;
-  margin-right: 3.6rem;
+  margin: 3.6rem 5rem;
   cursor: pointer;
   transition: all 0.3s linear;
 
@@ -45,6 +46,10 @@ button {
     background-color: transparent;
     color: #f5ee62;
   }
+}
+#inputField {
+
+  margin-top: 2rem;
 }
 
 .para:hover {
